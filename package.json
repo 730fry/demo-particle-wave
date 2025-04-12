@@ -1,0 +1,24 @@
+{
+  "name": "particle-canvas",
+  "version": "1.0.0",
+  "description": "Experimenting with canvas animations",
+  "main": "animation.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@types/random-normal": "^1.0.0",
+    "random-normal": "^1.0.0",
+    "three": "^0.107.0",
+    "three-orbit-controls": "^82.1.0"
+  },
+  "devDependencies": {
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "webpack": "^4.38.0",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  }
+}
