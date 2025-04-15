@@ -80,6 +80,8 @@ function moveParticle(particle: Particle, time: number) {
   particle.geometry.position.set(x, y, particle.z); // 位置更新（X, Y, Z）
 }
 
+
+
 // 描画ループ：各フレームで粒子の位置更新＋描画
 function draw(time: number, scene: Scene, camera: Camera, renderer: Renderer) {
   for (let i = 0; i < particles.length; i++) {
@@ -111,7 +113,15 @@ function initializeCanvas(): [Scene, Camera, Renderer] {
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(window.innerWidth, window.innerHeight); // 画面全体に広げる
   renderer.setPixelRatio(window.devicePixelRatio);         // 高DPI対応
+
+  // 既存の動作を維持して、document.bodyに追加
   document.body.appendChild(renderer.domElement);          // DOMに追加
+
+  // #my-particle-canvasにrendererのcanvasを追加
+  const canvasContainer = document.getElementById('particle-canvas');
+  if (canvasContainer) {
+    canvasContainer.appendChild(renderer.domElement); // 追加先を#my-particle-canvasに変更
+  }
 
   // リサイズ対応：ウィンドウ変更時に調整
   window.addEventListener('resize', () => {
